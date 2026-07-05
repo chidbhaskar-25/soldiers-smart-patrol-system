@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Patrol Routes</h2>
+
+<h3>Add New Route</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn">Save Route</button>
+</form>
+
+<hr>
+
+<h3>Route List</h3>
+
+<table>
+    <tr>
+        <th>Route Name</th>
+        <th>Area</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for route in routes %}
+    <tr>
+        <td>{{ route.route_name }}</td>
+        <td>{{ route.area }}</td>
+        <td>{{ route.start_time }}</td>
+        <td>{{ route.end_time }}</td>
+
+        <td>
+            <a href="/routes/{{ route.id }}/edit/" class="btn">Edit</a>
+            <a href="/routes/{{ route.id }}/delete/" class="btn">Delete</a>
+        </td>
+    </tr>
+
+    {% empty %}
+    <tr>
+        <td colspan="5">No Routes Available</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

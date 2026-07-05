@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Patrol System</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:20px;
+            background:#f5f5f5;
+        }
+        nav{
+            background:#1f4e79;
+            padding:15px;
+        }
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-right:20px;
+            font-weight:bold;
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+            background:white;
+        }
+        th,td{
+            border:1px solid #ccc;
+            padding:10px;
+            text-align:center;
+        }
+        th{
+            background:#1f4e79;
+            color:white;
+        }
+        .btn{
+            padding:8px 15px;
+            background:#1f4e79;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="/soldiers/">Soldiers</a>
+    <a href="/soldier/add/">Add Soldier</a>
+    <a href="/routes/">Patrol Routes</a>
+    <a href="/routes/add/">Add Route</a>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

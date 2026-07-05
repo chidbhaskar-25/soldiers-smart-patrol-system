@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Soldiers List</h2>
+
+<a href="/soldier/add/" class="btn">Add Soldier</a>
+
+<table>
+    <tr>
+        <th>Photo</th>
+        <th>Soldier ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Rank</th>
+        <th>Posting</th>
+        <th>Blood Group</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for soldier in soldiers %}
+    <tr>
+
+        <td>
+            {% if soldier.photo %}
+                <img src="{{ soldier.photo.url }}" width="70" height="70">
+            {% else %}
+                No Photo
+            {% endif %}
+        </td>
+
+        <td>{{ soldier.soldier_id }}</td>
+        <td>{{ soldier.name }}</td>
+        <td>{{ soldier.age }}</td>
+        <td>{{ soldier.rank }}</td>
+        <td>{{ soldier.posting }}</td>
+        <td>{{ soldier.blood_group }}</td>
+        <td>{{ soldier.phone }}</td>
+        <td>{{ soldier.status }}</td>
+
+        <td>
+            <a href="/soldier/{{ soldier.id }}/edit/" class="btn">Edit</a>
+            <a href="/soldier/{{ soldier.id }}/delete/" class="btn">Delete</a>
+        </td>
+
+    </tr>
+
+    {% empty %}
+    <tr>
+        <td colspan="10">No Soldiers Found.</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

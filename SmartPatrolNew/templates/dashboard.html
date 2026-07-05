@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Smart Patrol System Dashboard</h1>
+
+<table>
+    <tr>
+        <th>Total Soldiers</th>
+        <th>On Duty</th>
+        <th>On Leave</th>
+        <th>Total Patrol Routes</th>
+    </tr>
+    <tr>
+        <td>{{ total_soldiers }}</td>
+        <td>{{ on_duty }}</td>
+        <td>{{ on_leave }}</td>
+        <td>{{ total_routes }}</td>
+    </tr>
+</table>
+
+<br>
+
+<a href="/soldiers/" class="btn">View Soldiers</a>
+<a href="/routes/" class="btn">View Routes</a>
+
+{% endblock %}
